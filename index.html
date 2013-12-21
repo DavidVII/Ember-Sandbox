@@ -8,10 +8,11 @@
 </head>
 <body>
   <script type="text/x-handlebars">
+    <h2>Welcome to Ember.js</h2>
+
     {{#link-to 'index'}}Home{{/link-to}}
     {{#link-to 'about'}}About{{/link-to}}
-
-    <h2>Welcome to Ember.js</h2>
+    {{#link-to 'contacts'}}Contacts{{/link-to}}
 
     {{outlet}}
   </script>
@@ -23,6 +24,20 @@
 
   <script type="text/x-handlebars" id="about">
     <p>{{greeting}}</p>
+  </script>
+
+  <script type="text/x-handlebars" id="contacts/index">
+    <h2>Meet the Team</h2>
+    {{#each}}
+      <p>{{#link-to 'contact' this}}{{name}}{{/link-to}}</p>
+      <p>{{title}}</p>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" id="contact">
+    <h2>{{name}}</h2>
+    <p>{{title}}</p>
+    <p>{{bio}}</p>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
